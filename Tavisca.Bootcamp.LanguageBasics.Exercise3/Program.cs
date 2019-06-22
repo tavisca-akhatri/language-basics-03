@@ -48,7 +48,7 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 		  
 		   for(int i=0;i<protein.Length;i++)
 		   {
-			   cal[i]=(protein[i]+carbs[i])*5 + fat[i]*9;
+			   cal[i]=protein[i]*5 + carbs[i]*5 + fat[i]*9;
 		   }
 		   
 		   for(int i=0;i<dietPlans.Length;i++)
@@ -59,13 +59,13 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 			   }
 			   else
 			   {
-				   result[i]=findResult(protein,carbs,fat,cal,dietPlans[i],new List<int>());
+				   result[i]=Result(protein,carbs,fat,cal,dietPlans[i],new List<int>());
 			   }
 		   }
 		   
 		   return result;
         }
-		public static int findResult(int[] protein,int[] carbs,int[] fat,int[] cal,string dietPlan,List<int> index)
+		public static int Result(int[] protein,int[] carbs,int[] fat,int[] cal,string dietPlan,List<int> index)
 		{	
 			try
 			{
@@ -75,42 +75,42 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 					{
 						case 'P' :  index=findMax(protein,index);
 									if(index.Count>1)
-										return findResult(protein,carbs,fat,cal,dietPlan.Substring(1),index);
+										return Result(protein,carbs,fat,cal,dietPlan.Substring(1),index);
 									else
 										return index[0];
 						case 'p' :  index=findMin(protein,index);
 									if(index.Count>1)
-										return findResult(protein,carbs,fat,cal,dietPlan.Substring(1),index);
+										return Result(protein,carbs,fat,cal,dietPlan.Substring(1),index);
 									else
 										return index[0];
 						case 'C' :  index=findMax(carbs,index);
 									if(index.Count>1)
-										return findResult(protein,carbs,fat,cal,dietPlan.Substring(1),index);
+										return Result(protein,carbs,fat,cal,dietPlan.Substring(1),index);
 									else
 										return index[0];
 						case 'c' :  index=findMin(carbs,index);
 									if(index.Count>1)
-										return findResult(protein,carbs,fat,cal,dietPlan.Substring(1),index);
+										return Result(protein,carbs,fat,cal,dietPlan.Substring(1),index);
 									else
 										return index[0];
 						case 'F' :  index=findMax(fat,index);
 									if(index.Count>1)
-										return findResult(protein,carbs,fat,cal,dietPlan.Substring(1),index);
+										return Result(protein,carbs,fat,cal,dietPlan.Substring(1),index);
 									else
 										return index[0];
 						case 'f' :  index=findMin(fat,index);
 									if(index.Count>1)
-										return findResult(protein,carbs,fat,cal,dietPlan.Substring(1),index);
+										return Result(protein,carbs,fat,cal,dietPlan.Substring(1),index);
 									else
 										return index[0];
 						case 'T' :  index=findMax(cal,index);
 									if(index.Count>1)
-										return findResult(protein,carbs,fat,cal,dietPlan.Substring(1),index);
+										return Result(protein,carbs,fat,cal,dietPlan.Substring(1),index);
 									else
 										return index[0];
 						case 't' :  index=findMin(cal,index);
 									if(index.Count>1)
-										return findResult(protein,carbs,fat,cal,dietPlan.Substring(1),index);
+										return Result(protein,carbs,fat,cal,dietPlan.Substring(1),index);
 									else
 										return index[0];
 									
@@ -126,37 +126,37 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 			}
 			return 0;
 		}
-		public static List<int> findMax(int[] item,List<int> indexes)
+		public static List<int> findMax(int[] cal,List<int> indexes)
 		{
 			int max,i;
 			List<int> index1 = new List<int>();
 			
 			if(indexes.Count>0)
 			{
-				max=item[index1[0]];
+				max=cal[index1[0]];
 				foreach(int index in indexes)
 				{
-					if(max<item[index])
-						max=item[index];
+					if(max<cal[index])
+						max=cal[index];
 				}
 				foreach(int index in indexes)
 				{
-					if(max==item[index])
+					if(max==cal[index])
 						index1.Add(index);
 				}
 				
 			}
 			else
 			{
-				max=item[0];
-				for(i=1;i<item.Length;i++)
+				max=cal[0];
+				for(i=1;i<cal.Length;i++)
 				{
-					if(max<item[i])
-						max=item[i];
+					if(max<cal[i])
+						max=cal[i];
 				}
-				for(i=0;i<item.Length;i++)
+				for(i=0;i<cal.Length;i++)
 				{
-					if(max==item[i])
+					if(max==cal[i])
 						index1.Add(i);
 				}
 			}
@@ -165,37 +165,37 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 		
 		}
 		
-		public static List<int> findMin(int[] item,List<int> indexes)
+		public static List<int> findMin(int[] cal,List<int> indexes)
 		{
 			int min,i;
 			List<int> index1 = new List<int>();
 			
 			if(indexes.Count>0)
 			{
-				min=item[index1[0]];
+				min=cal[index1[0]];
 				foreach(int index in indexes)
 				{
-					if(min>item[index])
-						min=item[index];
+					if(min>cal[index])
+						min=cal[index];
 				}
 				foreach(int index in indexes)
 				{
-					if(min==item[index])
+					if(min==cal[index])
 						index1.Add(index);
 				}
 				
 			}
 			else
 			{
-				min=item[0];
-				for(i=1;i<item.Length;i++)
+				min=cal[0];
+				for(i=1;i<cal.Length;i++)
 				{
-					if(min>item[i])
-						min=item[i];
+					if(min>cal[i])
+						min=cal[i];
 				}
-				for(i=0;i<item.Length;i++)
+				for(i=0;i<cal.Length;i++)
 				{
-					if(min==item[i])
+					if(min==cal[i])
 						index1.Add(i);
 				}
 			}
