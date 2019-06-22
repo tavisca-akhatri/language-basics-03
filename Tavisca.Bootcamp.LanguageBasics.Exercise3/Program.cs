@@ -41,24 +41,18 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 
         public static int[] SelectMeals(int[] protein, int[] carbs, int[] fat, string[] dietPlans)
         {
-        int[] cal = new int[protein.Length];
+           int[] cal = new int[protein.Length];
 		   int[] result = new int[dietPlans.Length];
-		  
-		   
-		  
 		   for(int i=0;i<protein.Length;i++)
 		   {
 			   cal[i]=protein[i]*5 + carbs[i]*5 + fat[i]*9;
 		   }
-		   
 		   for(int i=0;i<dietPlans.Length;i++)
 		   {
 			   if(dietPlans[i]=="")
 			   {
 				   result[i] = 0;
-			   }
-			   else
-			   {
+			   }else{
 				   result[i]=Result(protein,carbs,fat,cal,dietPlans[i],new List<int>());
 			   }
 		   }
@@ -115,8 +109,7 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 										return index[0];
 									
 					}
-				}
-				else
+				}else
 					return index[0];
 			
 			}
@@ -130,7 +123,6 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 		{
 			int max,i;
 			List<int> index1 = new List<int>();
-			
 			if(indexes.Count>0)
 			{
 				max=cal[index1[0]];
@@ -145,9 +137,7 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 						index1.Add(index);
 				}
 				
-			}
-			else
-			{
+			}else{
 				max=cal[0];
 				for(i=1;i<cal.Length;i++)
 				{
@@ -169,8 +159,7 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 		{
 			int min,i;
 			List<int> index1 = new List<int>();
-			
-			if(indexes.Count>0)
+		    if(indexes.Count>0)
 			{
 				min=cal[index1[0]];
 				foreach(int index in indexes)
@@ -184,9 +173,7 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 						index1.Add(index);
 				}
 				
-			}
-			else
-			{
+			}else{
 				min=cal[0];
 				for(i=1;i<cal.Length;i++)
 				{
@@ -201,9 +188,7 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 			}
 			
 			return index1;
-		
-		}
-        
-        }
+	    }
+    }
             
 }
