@@ -53,8 +53,7 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 				   result[i]=Result(protein,carbs,fat,cal,dietPlans[i],new List<int>());
 			   }
 		   }
-		   
-		   return result;
+		    return result;
         }
 		public static int Result(int[] protein,int[] carbs,int[] fat,int[] cal,string dietPlan,List<int> index)
 		{	
@@ -101,13 +100,10 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 										return Result(protein,carbs,fat,cal,dietPlan.Substring(1),index);
 									else
 										return index[0];
-									
-					}
+				    }
 				}else
 					return index[0];
-			
-			}
-			catch(ArgumentOutOfRangeException e){
+		    }catch(ArgumentOutOfRangeException e){
 				Console.WriteLine(e);
 			}
 			return 0;
@@ -126,7 +122,6 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 					if(max==cal[index])
 						index1.Add(index);
 				}
-				
 			}else{
 				max=cal[0];
 				for(i=1;i<cal.Length;i++){
@@ -138,10 +133,8 @@ namespace Tavisca.Bootcamp.LanguageBasics.Exercise1
 						index1.Add(i);
 				}
 			}
-			
 			return index1;
-		
-		}
+	    }
 		
 		public static List<int> findMin(int[] cal,List<int> indexes)
 		{
